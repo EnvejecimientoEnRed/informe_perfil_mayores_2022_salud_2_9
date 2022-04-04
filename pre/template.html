@@ -32,24 +32,26 @@
                         </button>
                     </div>                  
                 </div>
-                <div class="chart__logics--bis">
+                <p class="text__paragraph">Seleccione la causa de muerte que desee resaltar. También puede modificar el eje Y para observar con mejor detalle aquellas causas de muerte con tasas más pequeñas</p>
+                <div class="chart__logics--bis">                    
                     <select id="enfermedad_cronica">
                         <option value="I. Infecciosas*">I. Infecciosas*</option>
                         <option value="II. Tumores">II. Tumores</option>
                         <option value="III. Sangre">III. Sangre</option>
-                        <option value="artrosis">Artrosis</option>
-                        <option value="asma">Asma</option>
-                        <option value="bronquitis_cronica_epoc">Bronquitis crónica (EPOC)</option>
-                        <option value="cataratas">Cataratas</option>
-                        <option value="cirrosis">Cirrosis</option>
-                        <option value="colesterol_alto">Colesterol alto</option>
-                        <option value="depresion">Depresión</option>
-                        <option value="diabetes">Diabetes</option>
-                        <option value="dolor_cervical">Dolor de espalda crónico (cervical)</option>
-                        <option value="dolor_lumbar">Dolor de espalda crónico (lumbar)</option>
-                        <option value="estrenimiento_cronico">Estreñimiento crónico</option>
-                        <option value="hemorroides">Hemorroides</option>
+                        <option value="IV. Metabólicas">IV. Metabólicas</option>
+                        <option value="IX. Circulatorias">IX. Circulatorias</option>
+                        <option value="V. Mentales">V. Mentales</option>
+                        <option value="VI-VIII. Nerviosas">VI-VIII. Nerviosas</option>
+                        <option value="X. Respiratorias">X. Respiratorias</option>
+                        <option value="XI. Digestivas">XI. Digestivas</option>
+                        <option value="XII. Piel">XII. Piel</option>
+                        <option value="XIII. Huesos">XIII. Huesos</option>
+                        <option value="XIV. Genitourinarias">XIV. Genitourinarias</option>
+                        <option value="XVII. Congénitas">XVII. Congénitas</option>
+                        <option value="XVIII. Otros síntomas">XVIII. Otros síntomas</option>
+                        <option value="XX. Causas externas">XX. Causas externas</option>
                     </select>
+                    <button class="btn" id="change_yaxis">Clique para cambiar el eje Y</button>
                 </div>
                 <div class="chart__viz" id="chart"></div>
                 <!-- Pie de gráfico -->
@@ -61,7 +63,7 @@
                     <p class="chart__note"><span>Notas: </span><span id="data-note">Se han dejado fuera del análisis las defunciones por 'XV. Embarazo' y 'XVI. Afecciones perinatales' al representar tasas muy bajas o nulas de defunciones en personas con 65 o más años</span></p>
                 </div>
                 <div class="logo">
-                    <img src="https://raw.githubusercontent.com/CarlosMunozDiazCSIC/envejecimiento_centenarios-supervivientes_evolucion/main/pre/cchs.png" alt="Logo del Centro de Ciencias Humanas y Sociales" width="100%" height="100%">
+                    <img src="https://raw.githubusercontent.com/CarlosMunozDiazCSIC/informe_perfil_mayores_2022_salud_2_9/main/pre/cchs.png" alt="Logo del Centro de Ciencias Humanas y Sociales" width="100%" height="100%">
                 </div>         
             </section>
             <section class="content b-data">
@@ -69,8 +71,8 @@
                     <h1 class="title">Repositorio de código, de datos y posibilidad de descarga como imagen estática</h1>
                 </div>
                 <p class="text__header">Descarga de datos</p>
-                <p class="text__paragraph">Los datos procesados en esta visualización los puede encontrar en <a class="link" href="https://github.com/CarlosMunozDiazCSIC/envejecimiento_centenarios-supervivientes_evolucion" target="_blank">este repositorio de Github</a>.</p>
-                <p class="text__paragraph">Si desea descargarlos, puede hacerlo desde <a class="link" href="https://raw.githubusercontent.com/CarlosMunozDiazCSIC/envejecimiento_centenarios-supervivientes_evolucion/main/data/evolucion_supervivientes.csv" target="_blank">aquí</a>.</p>
+                <p class="text__paragraph">Los datos procesados en esta visualización los puede encontrar en <a class="link" href="https://github.com/CarlosMunozDiazCSIC/informe_perfil_mayores_2022_salud_2_9" target="_blank">este repositorio de Github</a>.</p>
+                <p class="text__paragraph">Si desea descargarlos, puede hacerlo desde <a class="link" href="https://raw.githubusercontent.com/CarlosMunozDiazCSIC/informe_perfil_mayores_2022_salud_2_9/main/data/evolucion_supervivientes.csv" target="_blank">aquí</a>.</p>
                 <p class="text__header">Descargar como PNG</p>
                 <p class="text__paragraph">También puede descargar el gráfico como una imagen .png haciendo click <button class="btn_share" id="pngImage">aquí</button></p> 
                 <p class="text__paragraph">El gráfico se descargará con los últimos filtros que haya utilizado.</p>

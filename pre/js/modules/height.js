@@ -2,7 +2,7 @@
 ///Si viene desde iframe con altura fija, ejecutamos esta función. Si no, los altos son dinámicos a través de PYMJS
 function setChartHeight(iframe) {
     if(iframe == 'fixed') {
-        //El contenedor y el main reciben una altura fija. En este caso, 688 y 656
+        //El contenedor y el main reciben una altura fija
         //La altura del gráfico se ajusta más a lo disponible en el main, quitando títulos, lógica, ejes y pie de gráfico
         document.getElementsByClassName('container')[0].style.height = '688px';
         document.getElementsByClassName('main')[0].style.height = '656px';
@@ -18,8 +18,7 @@ function setChartHeight(iframe) {
         document.getElementsByClassName('chart__viz')[0].style.height = height - titleBlock - logicBlock - footerBlock - footerTop - containerPadding + 'px';
     } else {
         document.getElementsByClassName('main')[0].style.height = document.getElementsByClassName('main')[0].clientHeight + 'px';
-    }    
-    console.log(pymChild);
+    }
     pymChild.sendHeight();
 }
 
