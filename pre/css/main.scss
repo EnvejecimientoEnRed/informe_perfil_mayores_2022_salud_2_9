@@ -124,6 +124,15 @@ body, button {
             height: 480px;
             margin-top: 12px;
 
+            & .yaxis-text {
+                font-family: 'Titillium Web';
+                font-style: normal;
+                font-weight: 300;
+                font-size: 14px;
+                line-height: 10px;
+                text-anchor: end;
+            }
+
             & .tick text {
                 font-family: 'Titillium Web';
                 font-style: normal;

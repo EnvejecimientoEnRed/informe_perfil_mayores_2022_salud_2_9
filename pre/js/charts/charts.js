@@ -33,7 +33,7 @@ export function initChart(iframe) {
         let tipoY = 1600;
         document.getElementById('change_yaxis').addEventListener('click', function(e) {
             if (tipoY == 1600) {
-                tipoY = 300;
+                tipoY = 240;
             } else {
                 tipoY = 1600;
             }
@@ -41,6 +41,8 @@ export function initChart(iframe) {
         });
 
         //////VISUALIZACIÓN
+        data = data.filter(function(item) { if(item.Periodo == 2001 || item.Periodo == 2020) { return item; } });
+
         let margin = {top: 10, right: 10, bottom: 20, left: 45},
             width = document.getElementById('chart').clientWidth - margin.left - margin.right,
             height = document.getElementById('chart').clientHeight - margin.top - margin.bottom;
@@ -75,40 +77,45 @@ export function initChart(iframe) {
             .attr('class','yaxis')
             .call(d3.axisLeft(y).ticks(5));
 
-        function init(tipoCausa) {
+        function init() {
             svg.selectAll(".line")
                 .data(sumstat)
                 .enter()
                 .append("path")
                 .attr('class', 'lines')
                 .attr("fill", "none")
-                .attr("stroke", function(d){ 
-                    if(d.key == tipoCausa) {
-                        return COLOR_PRIMARY_1;
-                    } else {
-                        return COLOR_GREY_1;
-                    }
-                 })
-                .attr("opacity", function(d) {
-                    if(d.key == tipoCausa) {
-                        return '1';
-                    } else {
-                        return '0.5';
-                    }
-                })
-                .attr("stroke-width", function(d) {
-                    if(d.key == tipoCausa) {
-                        return '2';
-                    } else {
-                        return '1.5';
-                    }
-                })
+                .attr("stroke", COLOR_GREY_1)
+                .attr("opacity", '1')
+                .attr("stroke-width", '2')
                 .attr("d", function(d){
                     return d3.line()
                         .x(function(d) { return x(d.Periodo) + x.bandwidth() / 2; })
                         .y(function(d) { return y(+d.Valor); })
                         (d.values)
                 });
+
+            svg.selectAll("myCircles")
+                .data(data)
+                .enter()
+                .append("circle")
+                    .attr('class','circles')
+                    .attr("fill", COLOR_PRIMARY_1)
+                    .attr("stroke", "none")
+                    .attr("cx", function(d) { return x(d.Periodo) + x.bandwidth() / 2})
+                    .attr("cy", function(d) { return y(+d.Valor) })
+                    .attr("r", 3);
+
+            //Textos
+            svg.selectAll('myTexts')
+                .data(data)
+                .enter()
+                .append('text')
+                .attr('class','yaxis-text')
+                .filter(function(d,i) { if(i % 2 == 0) { return d; }})
+                .attr("x", function(d) { return x(d.Periodo) + 160;})
+                .attr("y", function(d) { return y(+d.Valor) })
+                .attr("dy", ".35em")
+                .text(function(d) { return d.Causa; });
         }
 
         function updateChart(tipoCausa) {
@@ -141,6 +148,21 @@ export function initChart(iframe) {
                         .y(function(d) { return y(+d.Valor); })
                         (d.values)
                 });
+
+            svg.selectAll(".circles")
+                    .attr("fill", COLOR_PRIMARY_1)
+                    .attr("stroke", "none")
+                    .attr("cx", function(d) { return x(d.Periodo) + x.bandwidth() / 2})
+                    .attr("cy", function(d) { return y(+d.Valor) })
+                    .attr("r", 3);
+
+            //Textos
+            svg.selectAll('.yaxis-text')
+                .filter(function(d,i) { if(i % 2 == 0) { return d; }})
+                .attr("x", function(d) { return x(d.Periodo) + 160;})
+                .attr("y", function(d) { return y(+d.Valor) })
+                .attr("dy", ".35em")
+                .text(function(d) { return d.Causa; });
         }
 
         function updateAxis(ejeY) {
