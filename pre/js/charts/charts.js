@@ -14,15 +14,15 @@ let tooltip = d3.select('#tooltip');
 
 export function initChart(iframe) {
     ///Lectura de datos
-    d3.csv('https://raw.githubusercontent.com/CarlosMunozDiazCSIC/informe_perfil_mayores_2022_salud_2_9/main/data/tasas_mortalidad_pdf.csv', function(error,data) {
+    d3.csv('https://raw.githubusercontent.com/CarlosMunozDiazCSIC/informe_perfil_mayores_2022_salud_2_9/capturaPDF/data/tasas_mortalidad_pdf.csv', function(error,data) {
         if (error) throw error;
 
         data.sort(function(x, y){
-            return d3.ascending(+x[2001], +y[2001]);
+            return d3.descending(+x[2001], +y[2001]);
         });
 
         //////VISUALIZACIÓN 
-        let margin = {top: 10, right: 10, bottom: 25, left: 105},
+        let margin = {top: 5, right: 10, bottom: 25, left: 135},
             width = document.getElementById('chart').clientWidth - margin.left - margin.right,
             height = document.getElementById('chart').clientHeight - margin.top - margin.bottom;
 
@@ -40,10 +40,11 @@ export function initChart(iframe) {
         // Add X axis
         let x = d3.scaleLinear()
             .domain([0,1500])
-            .range([0,width]);
+            .range([0,width])
+            .nice();
 
         let xAxis = function(g) {
-            g.call(d3.axisBottom(x).ticks(5).tickFormat(function(d,i) { return numberWithCommas3(d); }));
+            g.call(d3.axisBottom(x).ticks(3).tickFormat(function(d,i) { return numberWithCommas3(d); }));
             g.call(function(g) {
                 g.call(function(g){
                     g.selectAll('.tick line')
