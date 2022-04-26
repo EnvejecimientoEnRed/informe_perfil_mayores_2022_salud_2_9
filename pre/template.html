@@ -18,8 +18,9 @@
             <section class="content b-chart active" id="chartBlock">
                 <div class="b-title">
                     <h1 class="title" id="title">Figura 2.9. Tasas de mortalidad de la población de 65 y más años por tipo de causa en España. Comparativa 2001-2020</h1>
-                    <h2 class="subtitle" id="subtitle">Gráfico 20/2022. Tasas por cada 100.000 habitantes</h2>
+                    <h2 class="subtitle" id="subtitle">Gráfico 20/2022. Tasas de mortalidad por cada 100.000 habitantes</h2>
                 </div>
+                <p class="text__specification">Seleccione la causa de muerte que desee resaltar. También puede modificar el eje Y para observar con mejor detalle aquellas causas de muerte con tasas más pequeñas.</p>
                 <div class="chart__logics">
                     <div class="chart__legend">
                         <span class="chart__legend--item primary_1">Causa seleccionada</span>
@@ -32,9 +33,8 @@
                         </button>
                     </div>                  
                 </div>
-                <p class="text__paragraph">Seleccione la causa de muerte que desee resaltar. También puede modificar el eje Y para observar con mejor detalle aquellas causas de muerte con tasas más pequeñas</p>
                 <div class="chart__logics--bis">                    
-                    <select id="enfermedad_cronica">
+                    <select class="select" id="enfermedad_cronica">
                         <option value="I. Infecciosas*">I. Infecciosas*</option>
                         <option value="II. Tumores">II. Tumores</option>
                         <option value="III. Sangre">III. Sangre</option>
@@ -51,9 +51,13 @@
                         <option value="XVIII. Otros síntomas">XVIII. Otros síntomas</option>
                         <option value="XX. Causas externas">XX. Causas externas</option>
                     </select>
-                    <button class="btn" id="change_yaxis">Clique para cambiar el eje Y</button>
+                    <button class="btn__yaxis" id="change_yaxis">Eje Y en tasa 250</button>
                 </div>
-                <div class="chart__viz" id="chart"></div>
+                <div class="chart__viz">
+                    <p class="text__yaxis">Tasas (por 100.000)</p>
+                    <div class="chart" id="chart"></div>
+                    <p class="text__xaxis">Años</p>
+                </div>
                 <!-- Pie de gráfico -->
                 <div class="chart__footer">
                     <div class="chart__source">
