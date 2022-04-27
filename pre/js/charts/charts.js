@@ -297,7 +297,6 @@ export function initChart(iframe) {
         });
 
         //Altura del frame
-        setChartHeight(iframe);
-
+        setChartHeight();
     });    
 }
