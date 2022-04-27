@@ -9,10 +9,10 @@ import { setFixedIframeUrl } from './chart_helpers';
 
 //Colores fijos
 const COLOR_PRIMARY_1 = '#F8B05C',
-COLOR_GREY_1 = '#D6D6D6';
+COLOR_GREY_1 = '#A3A3A3';
 let tooltip = d3.select('#tooltip');
 
-export function initChart(iframe) {
+export function initChart() {
     ///Lectura de datos
     d3.csv('https://raw.githubusercontent.com/CarlosMunozDiazCSIC/informe_perfil_mayores_2022_salud_2_9/main/data/tasas_mortalidad_causa_2001_2020_v2.csv', function(error,data) {
         if (error) throw error;
@@ -256,6 +256,10 @@ export function initChart(iframe) {
                 .call(yAxis);
 
             updateChart(tipoCausa);
+
+            setTimeout(() => {
+                setChartCanvas();
+            }, 4000);
         }
 
         function animateChart() {
@@ -275,6 +279,10 @@ export function initChart(iframe) {
         //Animación del gráfico
         document.getElementById('replay').addEventListener('click', function() {
             animateChart();
+
+            setTimeout(() => {
+                setChartCanvas();
+            }, 4000);
         });
 
         //////
@@ -288,7 +296,9 @@ export function initChart(iframe) {
         setRRSSLinks('comparativa_mortalidad_65');
 
         //Captura de pantalla de la visualización
-        setChartCanvas();
+        setTimeout(() => {
+            setChartCanvas();
+        }, 4000);
 
         let pngDownload = document.getElementById('pngImage');
 
