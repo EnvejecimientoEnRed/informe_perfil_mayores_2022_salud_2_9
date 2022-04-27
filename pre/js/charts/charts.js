@@ -12,7 +12,7 @@ const COLOR_PRIMARY_1 = '#F8B05C',
 COLOR_ANAG_PRIM_3 = '#9E3515';
 let tooltip = d3.select('#tooltip');
 
-export function initChart(iframe) {
+export function initChart() {
     ///Lectura de datos
     d3.csv('https://raw.githubusercontent.com/CarlosMunozDiazCSIC/informe_perfil_mayores_2022_salud_2_9/capturaPDF/data/tasas_mortalidad_pdf.csv', function(error,data) {
         if (error) throw error;
@@ -129,7 +129,6 @@ export function initChart(iframe) {
         });
 
         //Altura del frame
-        setChartHeight(iframe);
-
+        setChartHeight();
     });    
 }
