@@ -179,7 +179,7 @@ export function initChart() {
 
                     //Texto
                     let html = '<p class="chart__tooltip--title">' + d.Causa + '</p>' + 
-                        '<p class="chart__tooltip--text">En <b>' + d.Periodo + '</b>, la tasa de mortalidad para este tipo de causa se sitúa en <b>' + numberWithCommas3(parseFloat(d.Valor).toFixed(1)) + '</b> por cada 100.000 habitantes</p>';
+                        '<p class="chart__tooltip--text">En <b>' + d.Periodo + '</b> y por este tipo de causa, el número de fallecidos es <b>' + numberWithCommas3(d.Valor2) + '</b> y la tasa de mortalidad se sitúa en <b>' + numberWithCommas3(parseFloat(d.Valor).toFixed(1)) + '</b> por cada 100.000 habitantes</p>';
                 
                     tooltip.html(html);
 
