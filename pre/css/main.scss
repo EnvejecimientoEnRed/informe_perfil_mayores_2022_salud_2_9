@@ -111,6 +111,8 @@ button {
             display: flex;
             flex-wrap: wrap;
 
+            width: calc(100% - 141px);
+
             &--item {
                 position: relative;
                 margin-top: 8px;
@@ -497,6 +499,28 @@ button {
         .chart {
             &__options {
                 justify-content: center;
+            }
+        }
+    }
+
+    .b-rrss {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .b-chart {
+        .chart {
+            &__options {
+                justify-content: center;
+            }
+
+            &__logics {
+                flex-direction: column;
+            }
+
+            &__legend {
+                width: 100%;
             }
         }
     }
