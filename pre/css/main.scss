@@ -529,3 +529,9 @@ button {
         width: 80%;
     }
 }
+
+@media screen and (max-width: 475px) {
+    button {
+        font-size: 0.8em;
+    }
+}

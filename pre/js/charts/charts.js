@@ -30,12 +30,12 @@ export function initChart() {
                 tipoY = 250;
 
                 //Modificamos el texto del botón
-                e.target.textContent = 'Eje Y en tasa 1.600';
+                e.target.textContent = 'Cambiar a eje con tasa 1.600';
             } else {
                 tipoY = 1600;
 
                 //Modificamos el texto del botón
-                e.target.textContent = 'Eje Y en tasa 250';
+                e.target.textContent = 'Cambiar a eje con tasa 250';
             }
 
             //Cambiamos eje
@@ -119,12 +119,12 @@ export function initChart() {
                     if(d.key == tipoCausa) {
                         return '1';
                     } else {
-                        return '0.5';
+                        return '0.65';
                     }
                 })
                 .attr("stroke-width", function(d) {
                     if(d.key == tipoCausa) {
-                        return '3';
+                        return '3.5';
                     } else {
                         return '2';
                     }
@@ -179,7 +179,7 @@ export function initChart() {
 
                     //Texto
                     let html = '<p class="chart__tooltip--title">' + d.Causa + '</p>' + 
-                        '<p class="chart__tooltip--text">En <b>' + d.Periodo + '</b> y por este tipo de causa, el número de fallecidos es <b>' + numberWithCommas3(d.Valor2) + '</b> y la tasa de mortalidad se sitúa en <b>' + numberWithCommas3(parseFloat(d.Valor).toFixed(1)) + '</b> por cada 100.000 habitantes</p>';
+                        '<p class="chart__tooltip--text">En <b>' + d.Periodo + '</b> y por este tipo de causa, el número de fallecidos es <b>' + numberWithCommas3(d.Valor2) + '</b> y la tasa de mortalidad se sitúa en <b>' + numberWithCommas3(parseFloat(d.Valor).toFixed(1)) + '</b></p>';
                 
                     tooltip.html(html);
 
@@ -214,14 +214,14 @@ export function initChart() {
                     if(d.key == tipoCausa) {
                         return '1';
                     } else {
-                        return '0.5';
+                        return '0.65';
                     }
                 })
                 .attr("stroke-width", function(d) {
                     if(d.key == tipoCausa) {
-                        return '2';
+                        return '3.5';
                     } else {
-                        return '1.5';
+                        return '2';
                     }
                 })
                 .transition()
